@@ -1,3 +1,6 @@
 [submodule "SuperMouseEngine/vendor/spdlog"]
 	path = SuperMouseEngine/vendor/spdlog
 	url = https://github.com/gabime/spdlog
+[submodule "SuperMouseEngine/vendor/glm"]
+	path = SuperMouseEngine/vendor/glm
+	url = https://github.com/g-truc/glm

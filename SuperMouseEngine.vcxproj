@@ -112,7 +112,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)SuperMouseEngine\vendor\SDL2\include;$(SolutionDir)SuperMouseEngine\vendor\spdlog\include;$(SolutionDir)SuperMouseEngine\src\SuperMouse;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)SuperMouseEngine\vendor\glm;$(SolutionDir)SuperMouseEngine\vendor\SDL2\include;$(SolutionDir)SuperMouseEngine\vendor\spdlog\include;$(SolutionDir)SuperMouseEngine\src\SuperMouse;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -128,7 +128,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)SuperMouseEngine\vendor\SDL2\include;$(SolutionDir)SuperMouseEngine\vendor\spdlog\include;$(SolutionDir)SuperMouseEngine\src\SuperMouse;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)SuperMouseEngine\vendor\glm;$(SolutionDir)SuperMouseEngine\vendor\SDL2\include;$(SolutionDir)SuperMouseEngine\vendor\spdlog\include;$(SolutionDir)SuperMouseEngine\src\SuperMouse;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -161,7 +161,6 @@
     <ClInclude Include="SuperMouseEngine\src\SuperMouse\SME_Core.h" />
     <ClInclude Include="SuperMouseEngine\src\SuperMouse\SME_FuncLibrary.h" />
     <ClInclude Include="SuperMouseEngine\src\SuperMouse\SME_Variables.h" />
-    <ClInclude Include="SuperMouseEngine\src\SuperMouse\Utils\Vec2.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
