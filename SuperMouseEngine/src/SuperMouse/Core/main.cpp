@@ -3,12 +3,12 @@
 
 int main(int argc, char** argv)
 {
-	super_mouse::Log::init();
-	auto game = super_mouse::Game();
+    super_mouse::Log::init();
+    const auto game = std::make_unique<super_mouse::Game>();
 
-	if (game.initSdl())
-	{
-		game.update();
-	}
-	return 0;
+    if (game->initSdl())
+    {
+        game->run();
+    }
+    return 0;
 }

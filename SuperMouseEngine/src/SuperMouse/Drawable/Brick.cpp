@@ -10,26 +10,37 @@ namespace super_mouse
         constexpr int offset3 = 6;
     }  // namespace
 
-    Brick::Brick(const glm::ivec2 location) : _location(location)
+    Brick::Brick()
     {
-        _location = _location * unit;
-
-        _rects.push_back({ _location.x, _location.y, size.x, size.y });
-        _rects.push_back({ _location.x + offset1, _location.y + offset1, size.x - offset1 * 2, size.y - offset1 * 2 });
-        _rects.push_back({ _location.x + offset2, _location.y + offset2, size.x - offset2 * 2, size.y - offset2 * 2 });
-        _rects.push_back({ _location.x + offset3, _location.y + offset3, size.x - offset3 * 2, size.y - offset3 * 2 });
+        _rects.resize(4);
     }
 
-    void Brick::draw()
+    void Brick::setWorldLocation(const glm::ivec2& location)
     {
-        if (!_renderer)
-        {
-            throw std::runtime_error("renderer must be initialized");
-        }
+        _worldLocation = location;
+        setRectsLoc(_worldLocation * unit);
+    }
 
+    void Brick::setRelLocation(const glm::ivec2& location)
+    {
+        _relLocation = location;
+        setRectsLoc(_worldLocation * unit);
+    }
+
+    void Brick::setRectsLoc(const glm::ivec2& location)
+    {
+        _rects[0] = { location.x, location.y, size.x, size.y };
+        _rects[1] = { location.x + offset1, location.y + offset1, size.x - offset1 * 2, size.y - offset1 * 2 };
+        _rects[2] = { location.x + offset2, location.y + offset2, size.x - offset2 * 2, size.y - offset2 * 2 };
+        _rects[3] = { location.x + offset3, location.y + offset3, size.x - offset3 * 2, size.y - offset3 * 2 };
+    }
+
+    void Brick::render(SDL_Renderer* renderer)
+    {
         bool renderRect = true;
-        if (_location.x < game_field::min_x * unit || _location.x > game_field::max_x * unit ||  //
-            _location.y < game_field::min_y * unit || _location.y > game_field::max_y * unit)    //
+        // TODO
+        if (_worldLocation.x < game_field::min_x || _worldLocation.x > game_field::max_x ||  //
+            _worldLocation.y < game_field::min_y || _worldLocation.y > game_field::max_y)    //
         {
             renderRect = false;
         }
@@ -39,20 +50,11 @@ namespace super_mouse
             bool isBgColor = true;
             for (const auto& rect : _rects)
             {
-                const auto clr = isBgColor ? _bg : _fl;
-                SDL_SetRenderDrawColor(_renderer, clr.r, clr.g, clr.b, clr.a);
-                SDL_RenderFillRect(_renderer, &rect);
+                const auto clr = isBgColor ? Color::background : Color::fill;
+                SDL_SetRenderDrawColor(renderer, clr.r, clr.g, clr.b, clr.a);
+                SDL_RenderFillRect(renderer, &rect);
                 isBgColor = !isBgColor;
             }
         }
-    }
-
-    void Brick::render(SDL_Renderer* renderer)
-    {
-        if (!renderer)
-        {
-            throw std::runtime_error("renderer must be initialized");
-        }
-        _renderer = renderer;
     }
 }  // namespace super_mouse

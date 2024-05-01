@@ -1,9 +1,4 @@
-﻿  AreaElement.cpp
-  Brick.cpp
-  Input.cpp
-  Game.cpp
+﻿  Game.cpp
   main.cpp
-  Drawable.cpp
-  Figure.cpp
   Создание кода...
   SuperMouseEngine.vcxproj -> C:\dev\SuperMouseEngine\x64\Debug\SuperMouseEngine.exe

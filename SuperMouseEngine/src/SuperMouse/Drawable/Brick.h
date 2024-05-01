@@ -5,26 +5,30 @@
 
 namespace super_mouse
 {
+    class Figure;
 
-    class Brick : public Drawable
+    class Brick final : public Drawable
     {
     public:
-        Brick() = default;
+        Brick();
 
         // Initialize the location in relative values of the playing field, e.g (5,6) -> (5*unit, 6*unit)
-        Brick(glm::ivec2 location);
-        void render(SDL_Renderer* renderer) override;
-        void draw() override;
+        void setWorldLocation(const glm::ivec2& location);
+        glm::ivec2 getWorldLocation() const { return _worldLocation; }
 
-        glm::ivec2 get_location() const { return _location; }
+        void setRelLocation(const glm::ivec2& location);
+        glm::ivec2 getRelLocation() const { return _relLocation; }
+
+        void render(SDL_Renderer* renderer) override;
 
     protected:
-        glm::ivec2 _location{};
+        glm::ivec2 _worldLocation{};
+        glm::ivec2 _relLocation{};
 
     private:
         std::vector<SDL_Rect> _rects;
+        void setRectsLoc(const glm::ivec2& location);
     };
-
 }  // namespace super_mouse
 
 

@@ -4,15 +4,15 @@
 namespace super_mouse
 {
 
-	class AreaElement final : public Drawable
-	{
-	public:
-		AreaElement() = default;
+    class AreaElement final : public Drawable
+    {
+    public:
+        AreaElement();
+        void render(SDL_Renderer* renderer) override;
 
-		void render(SDL_Renderer* renderer) override;
-		void draw() override {}
-		void createFrame() const;
-	};
+    private:
+        std::vector<SDL_Rect> _rects;
+    };
 
 }  // namespace super_mouse
 
