@@ -40,13 +40,13 @@
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -73,10 +73,14 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ExternalIncludePath>$(SolutionDir)SuperMouseEngine\vendor\SDL2\include;$(ExternalIncludePath)</ExternalIncludePath>
     <LibraryPath>$(SolutionDir)SuperMouseEngine\vendor\SDL2\lib\x64;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)bin\$(Configuration)-$(Platform)\$(ProjectName)\</OutDir>
+    <IntDir>$(SolutionDir)bin-int\$(Configuration)-$(Platform)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ExternalIncludePath>$(SolutionDir)SuperMouseEngine\vendor\SDL2\include;$(ExternalIncludePath)</ExternalIncludePath>
     <LibraryPath>$(SolutionDir)SuperMouseEngine\vendor\SDL2\lib\x64;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)bin\$(Configuration)-$(Platform)\$(ProjectName)\</OutDir>
+    <IntDir>$(SolutionDir)bin-int\$(Configuration)-$(Platform)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -139,20 +143,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="SuperMouseEngine\src\SuperMouse\Core\GameBase.cpp" />
     <ClCompile Include="SuperMouseEngine\src\SuperMouse\Utils\Log.cpp" />
     <ClCompile Include="SuperMouseEngine\src\SuperMouse\Utils\Color.cpp" />
     <ClCompile Include="SuperMouseEngine\src\SuperMouse\Drawable\AreaElement.cpp" />
     <ClCompile Include="SuperMouseEngine\src\SuperMouse\Drawable\Brick.cpp" />
     <ClCompile Include="SuperMouseEngine\src\SuperMouse\Core\Input.cpp" />
-    <ClCompile Include="SuperMouseEngine\src\SuperMouse\Core\Game.cpp" />
+    <ClCompile Include="SuperMouseEngine\src\SuperMouse\Core\EngineInit.cpp" />
     <ClCompile Include="SuperMouseEngine\src\SuperMouse\Core\main.cpp" />
     <ClCompile Include="SuperMouseEngine\src\SuperMouse\Drawable\Drawable.cpp" />
     <ClCompile Include="SuperMouseEngine\src\SuperMouse\Drawable\Figure.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="SuperMouseEngine\src\SuperMouse\Core\GameBase.h" />
+    <ClInclude Include="SuperMouseEngine\src\SuperMouse\SuperMouseEngine.h" />
     <ClInclude Include="SuperMouseEngine\src\SuperMouse\Utils\Log.h" />
     <ClInclude Include="SuperMouseEngine\src\SuperMouse\Utils\Color.h" />
-    <ClInclude Include="SuperMouseEngine\src\SuperMouse\Core\Game.h" />
+    <ClInclude Include="SuperMouseEngine\src\SuperMouse\Core\EngineInit.h" />
     <ClInclude Include="SuperMouseEngine\src\SuperMouse\Core\Input.h" />
     <ClInclude Include="SuperMouseEngine\src\SuperMouse\Drawable\AreaElement.h" />
     <ClInclude Include="SuperMouseEngine\src\SuperMouse\Drawable\Brick.h" />

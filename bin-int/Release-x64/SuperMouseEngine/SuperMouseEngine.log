@@ -1,0 +1,10 @@
+﻿  Log.cpp
+  Color.cpp
+  AreaElement.cpp
+  Brick.cpp
+  Input.cpp
+  Game.cpp
+  main.cpp
+  Drawable.cpp
+  Figure.cpp
+  SuperMouseEngine.vcxproj -> C:\dev\SuperMouseEngine\bin\Release-x64\SuperMouseEngine\SuperMouseEngine.lib

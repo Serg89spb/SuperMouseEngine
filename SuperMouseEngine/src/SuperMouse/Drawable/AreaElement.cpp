@@ -5,16 +5,17 @@ namespace super_mouse
 {
     namespace frame
     {
-        const glm::ivec2 loc_hor1 = { 8, 21 * unit + 8 };
-        const glm::ivec2 loc_hor2 = { 8, 8 };
-        const glm::ivec2 size_hor = { 10 * unit - 16, 4 };
+        const glm::ivec2 loc_hor1 = { 4, 21 * unit + 8 };
+        const glm::ivec2 loc_hor2 = { 4, 8 };
+        const glm::ivec2 size_hor = { 10 * unit - 8, 4 };
 
         const glm::ivec2 loc_vert = { 10 * unit + 8, 16 };
-        const glm::ivec2 size_ver = { 4, 21 * unit - 16 };
+        const glm::ivec2 size_ver = { 4, 21 * unit - 8 };
     }  // namespace frame
 
     //AreaElement()
 
+    // GridBorder
     AreaElement::AreaElement()
     {
         _rects.resize(3);

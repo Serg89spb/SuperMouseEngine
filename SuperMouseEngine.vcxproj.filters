@@ -18,7 +18,7 @@
     <ClCompile Include="SuperMouseEngine\src\SuperMouse\Core\main.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="SuperMouseEngine\src\SuperMouse\Core\Game.cpp">
+    <ClCompile Include="SuperMouseEngine\src\SuperMouse\Core\EngineInit.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="SuperMouseEngine\src\SuperMouse\Core\Input.cpp">
@@ -42,9 +42,12 @@
     <ClCompile Include="SuperMouseEngine\src\SuperMouse\Utils\Log.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="SuperMouseEngine\src\SuperMouse\Core\GameBase.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SuperMouseEngine\src\SuperMouse\Core\Game.h">
+    <ClInclude Include="SuperMouseEngine\src\SuperMouse\Core\EngineInit.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="SuperMouseEngine\src\SuperMouse\Core\Input.h">
@@ -75,6 +78,12 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="SuperMouseEngine\src\SuperMouse\Utils\Log.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="SuperMouseEngine\src\SuperMouse\SuperMouseEngine.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="SuperMouseEngine\src\SuperMouse\Core\GameBase.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

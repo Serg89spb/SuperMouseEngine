@@ -45,7 +45,7 @@ namespace super_mouse
     {
         auto pos = _location;
         pos.x += control.offsetX;
-        if (control.accelerate) pos.y++;
+        if (control.accelerate) { pos.y++; }
         if (control.needRotate) rotate(bottomBricksPos);
 
         if (checkCollisionX(pos, bottomBricksPos))
@@ -53,12 +53,8 @@ namespace super_mouse
             pos.x = _location.x;
         }
 
-        bool collided = false;
-        if (checkCollisionY(pos, bottomBricksPos))
-        {
-            collided = true;
-        }
-        else
+        const bool collided = checkCollisionY(pos, bottomBricksPos);
+        if (!collided)
         {
             setLocation(pos);
         }
@@ -84,6 +80,16 @@ namespace super_mouse
                 }
                 if (++_rotation == 4) { _rotation = 0; }
             });
+
+
+        // snapshot()
+        // rotate
+        // if collide -> restore from snapshot
+
+        // add brick clone
+        // rotate
+        // check if collide (clone)
+        // if collide -> nothing
 
         const auto previousRot = _rotation;
         rotateBricks();
@@ -119,10 +125,8 @@ namespace super_mouse
             {
                 if (nextElemPos == btBrick) return true;
             }
-            if (nextElemPos.y >= game_field::max_y)
-            {
-                return true;
-            }
+            if (nextElemPos.y >= game_field::max_y) return true;
+
         }
         return false;
     }
@@ -137,7 +141,7 @@ namespace super_mouse
         const auto locs = all_figures_pos[index];
         _bricks.clear();
         _bricks.resize(locs.size());
-        for (int i = 0; i < (int)_bricks.size(); ++i)
+        for (size_t i = 0; i < _bricks.size(); ++i)
         {
             _bricks[i].setRelLocation(locs[i]);
         }
@@ -155,6 +159,8 @@ namespace super_mouse
     void Figure::randomRotate()
     {
         for (int i = 0; i < getRandomInt(1, 3); ++i)
+        {
             rotate({});
+        }
     }
 }  // namespace super_mouse

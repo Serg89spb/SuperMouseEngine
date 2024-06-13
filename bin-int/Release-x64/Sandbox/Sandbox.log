@@ -1,0 +1,2 @@
+﻿  Sandbox.cpp
+C:\dev\SuperMouseEngine\Sandbox\src\Sandbox.cpp(4,10): error C1083: Cannot open include file: 'SuperMouseEngine.h': No such file or directory
