@@ -16,6 +16,8 @@ namespace super_mouse
         bool isKeyPressed(unsigned int keyId);
         bool isHandleHold(unsigned int keyId);
         bool shouldQuit() const { return _shouldQuit; }
+        bool isPause() const { return _pause; }
+        void setIsPause(bool pause) { _pause = pause; }
 
     private:
         void dispose();
@@ -25,6 +27,7 @@ namespace super_mouse
         bool wasKeyDown(unsigned int keyId);
 
         bool _shouldQuit = false;
+        bool _pause = false;
         bool _isHolding = false;
         unsigned int _holdKeyId{};
         double _startHoldTime{};

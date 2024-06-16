@@ -1,5 +1,2 @@
-﻿  EngineInit.cpp
-  GameBase.cpp
-  main.cpp
-  Generating Code...
+﻿  RightBar.cpp
   SuperMouseEngine.vcxproj -> C:\dev\SuperMouseEngine\bin\Debug-x64\SuperMouseEngine\SuperMouseEngine.lib

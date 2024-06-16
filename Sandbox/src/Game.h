@@ -16,7 +16,9 @@ namespace sandbox
         virtual void Init(SDL_Renderer* renderer, super_mouse::EngineInit* engineInit) override;
         virtual void run() override;
     private:
-        uint32_t _invertGameSpeed = 25;
+        bool _gameOver = false;
+
+        uint32_t _invertGameSpeed = 21;
         uint32_t _frameCounter = 0;
 
         SDL_Event _inputEvent{};
@@ -36,5 +38,6 @@ namespace sandbox
         void checkLineFilled();
         void removeLines();
         void shiftAfterRemove(const int rmvY);
+        void updateScore(int scoreFactor) const;
     };
 }

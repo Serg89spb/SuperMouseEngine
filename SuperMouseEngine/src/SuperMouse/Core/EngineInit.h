@@ -5,6 +5,7 @@
 
 namespace super_mouse
 {
+    class RightBar;
     class GameBase;
     class AreaElement;
 
@@ -19,6 +20,7 @@ namespace super_mouse
         SDL_Window* getWindow() const { return _window; }
         SDL_Renderer* getRenderer() const { return _renderer; }
         void shouldQuit() { _running = false; }
+        RightBar* rightBar() const { return _rightBar; }
 
         template<typename T>
         T* createGame()
@@ -30,7 +32,8 @@ namespace super_mouse
 
     private:
         bool _running = true;
-        std::unique_ptr<AreaElement> m_frame;
+        std::unique_ptr<AreaElement> _frame;
+        RightBar* _rightBar;
 
         uint32_t _lastFrameTime = 0;
         glm::ivec2 _allFieldSize = { 16, 22 };

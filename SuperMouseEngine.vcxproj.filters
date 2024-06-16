@@ -45,6 +45,21 @@
     <ClCompile Include="SuperMouseEngine\src\SuperMouse\Core\GameBase.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="SuperMouseEngine\src\SuperMouse\Drawable\Digit.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="SuperMouseEngine\src\SuperMouse\Drawable\NumberBox.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="SuperMouseEngine\src\SuperMouse\Drawable\DigitLine.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="SuperMouseEngine\src\SuperMouse\Drawable\RightBar.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="SuperMouseEngine\src\SuperMouse\Drawable\DrawableText.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SuperMouseEngine\src\SuperMouse\Core\EngineInit.h">
@@ -86,5 +101,28 @@
     <ClInclude Include="SuperMouseEngine\src\SuperMouse\Core\GameBase.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="SuperMouseEngine\src\SuperMouse\Drawable\Digit.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="SuperMouseEngine\src\SuperMouse\Drawable\NumberBox.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="SuperMouseEngine\src\SuperMouse\Drawable\DigitLine.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="SuperMouseEngine\src\SuperMouse\Drawable\RightBar.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="SuperMouseEngine\src\SuperMouse\Drawable\DrawableText.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="SuperMouseEngine\res\FUTURAM.ttf" />
+    <Font Include="SuperMouseEngine\res\UniversCondensed.ttf" />
+    <Font Include="SuperMouseEngine\res\Florsn02.ttf" />
+    <Font Include="SuperMouseEngine\res\Florsn10.ttf" />
+    <Font Include="SuperMouseEngine\res\Roboto-Medium.ttf" />
+    <Font Include="SuperMouseEngine\res\imagine_font.ttf" />
   </ItemGroup>
 </Project>

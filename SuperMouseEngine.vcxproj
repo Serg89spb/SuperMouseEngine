@@ -116,12 +116,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)SuperMouseEngine\vendor\glm;$(SolutionDir)SuperMouseEngine\vendor\SDL2\include;$(SolutionDir)SuperMouseEngine\vendor\spdlog\include;$(SolutionDir)SuperMouseEngine\src\SuperMouse;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)SuperMouseEngine\vendor\glm;$(SolutionDir)SuperMouseEngine\vendor\SDL2\include;$(SolutionDir)SuperMouseEngine\vendor\spdlog\include;$(SolutionDir)SuperMouseEngine\src\SuperMouse;$(SolutionDir)SuperMouseEngine\vendor\SDL2_ttf\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -144,6 +144,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="SuperMouseEngine\src\SuperMouse\Core\GameBase.cpp" />
+    <ClCompile Include="SuperMouseEngine\src\SuperMouse\Drawable\Digit.cpp" />
+    <ClCompile Include="SuperMouseEngine\src\SuperMouse\Drawable\DigitLine.cpp" />
+    <ClCompile Include="SuperMouseEngine\src\SuperMouse\Drawable\DrawableText.cpp" />
+    <ClCompile Include="SuperMouseEngine\src\SuperMouse\Drawable\NumberBox.cpp" />
+    <ClCompile Include="SuperMouseEngine\src\SuperMouse\Drawable\RightBar.cpp" />
     <ClCompile Include="SuperMouseEngine\src\SuperMouse\Utils\Log.cpp" />
     <ClCompile Include="SuperMouseEngine\src\SuperMouse\Utils\Color.cpp" />
     <ClCompile Include="SuperMouseEngine\src\SuperMouse\Drawable\AreaElement.cpp" />
@@ -156,6 +161,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SuperMouseEngine\src\SuperMouse\Core\GameBase.h" />
+    <ClInclude Include="SuperMouseEngine\src\SuperMouse\Drawable\Digit.h" />
+    <ClInclude Include="SuperMouseEngine\src\SuperMouse\Drawable\DigitLine.h" />
+    <ClInclude Include="SuperMouseEngine\src\SuperMouse\Drawable\DrawableText.h" />
+    <ClInclude Include="SuperMouseEngine\src\SuperMouse\Drawable\NumberBox.h" />
+    <ClInclude Include="SuperMouseEngine\src\SuperMouse\Drawable\RightBar.h" />
     <ClInclude Include="SuperMouseEngine\src\SuperMouse\SuperMouseEngine.h" />
     <ClInclude Include="SuperMouseEngine\src\SuperMouse\Utils\Log.h" />
     <ClInclude Include="SuperMouseEngine\src\SuperMouse\Utils\Color.h" />
@@ -168,6 +178,14 @@
     <ClInclude Include="SuperMouseEngine\src\SuperMouse\SME_Core.h" />
     <ClInclude Include="SuperMouseEngine\src\SuperMouse\SME_FuncLibrary.h" />
     <ClInclude Include="SuperMouseEngine\src\SuperMouse\SME_Variables.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="SuperMouseEngine\res\Florsn02.ttf" />
+    <Font Include="SuperMouseEngine\res\Florsn10.ttf" />
+    <Font Include="SuperMouseEngine\res\FUTURAM.ttf" />
+    <Font Include="SuperMouseEngine\res\imagine_font.ttf" />
+    <Font Include="SuperMouseEngine\res\Roboto-Medium.ttf" />
+    <Font Include="SuperMouseEngine\res\UniversCondensed.ttf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

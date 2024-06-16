@@ -3,6 +3,7 @@
 namespace super_mouse
 {
     constexpr int unit = 32;
+    constexpr int fps_limit = 60;
 
     namespace game_field
     {
@@ -19,6 +20,7 @@ namespace super_mouse
 
     struct Control
     {
+        bool pause = false;
         int offsetX = 0;
         bool needRotate = false;
         bool accelerate = false;
@@ -29,6 +31,27 @@ namespace super_mouse
             needRotate = false;
             accelerate = false;
         }
+    };
+
+    enum EDigitLineType
+    {
+        upLeft,
+        upTop,
+        upRight,
+        center,
+        bottomLeft,
+        bottomDown,
+        bottomRight
+    };
+
+    enum ERightBarText
+    {
+        Hi,
+        Score,
+        Speed,
+        Level,
+        Pause,
+        GameOver
     };
 
 }  // namespace super_mouse

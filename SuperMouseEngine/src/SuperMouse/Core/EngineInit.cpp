@@ -2,7 +2,7 @@
 
 #include "GameBase.h"
 #include "Drawable/AreaElement.h"
-#include "Drawable/Brick.h"
+#include "Drawable/RightBar.h"
 
 // EngineDLL <- EngineLib
 
@@ -12,14 +12,10 @@
 
 namespace super_mouse
 {
-    namespace running
-    {
-        constexpr int fps_limit = 60;
-    }  // namespace running
-
     EngineInit::EngineInit()
     {
-        m_frame = std::make_unique<AreaElement>();
+        _frame = std::make_unique<AreaElement>();
+        _rightBar = new RightBar;
     }
 
     EngineInit::~EngineInit() {}
@@ -51,6 +47,10 @@ namespace super_mouse
 
         _lastFrameTime = SDL_GetTicks();
 
+        _rightBar->setTextVisibility(Pause, false);
+        _rightBar->setTextVisibility(GameOver, false);
+        _rightBar->SwitchScoreAndHiScore(true);
+
         return true;
     }
 
@@ -65,12 +65,14 @@ namespace super_mouse
             SDL_SetRenderDrawColor(_renderer, bg.r, bg.g, bg.b, bg.a);
             SDL_RenderClear(_renderer);
 
-            m_frame->render(_renderer);
+            _frame->render(_renderer);
+            _rightBar->render(_renderer);
+
             _game->run();
 
             SDL_RenderPresent(_renderer);
 
-            limitFps(running::fps_limit);
+            limitFps(fps_limit);
         }
     }
 

@@ -1,11 +1,13 @@
 #include "Game.h"
 
+#include "Drawable/RightBar.h"
+
 namespace sandbox
 {
 
     namespace running
     {
-        constexpr int input_move_speed = 2;
+        constexpr int input_move_speed = 1;
     }  // namespace running
 
     using namespace super_mouse;
@@ -35,6 +37,20 @@ namespace sandbox
             _figure.generate();
 
             checkLineFilled();
+
+            for (auto& btBrick : _bottomBricksPos)
+            {
+                if (btBrick.y <= game_field::min_y)
+                {
+                    _gameOver = true;
+                    if (const auto bar = _engineInit->rightBar())
+                    {
+                        bar->setTextVisibility(GameOver, true);
+                    }
+                    return;
+                }
+            }
+
         }
         if (!_rmvY.empty()) removeLines();
         if (_frameCounter++ == INT_MAX) _frameCounter = 0;
@@ -45,18 +61,45 @@ namespace sandbox
         _input.update(_inputEvent);
         if (_input.shouldQuit()) _engineInit->shouldQuit();
 
-        // control -> input_state
+        if (_gameOver)
+        {
+            _control.reset();
+            return;
+        }
+
+        if (_input.isKeyPressed(SDLK_ESCAPE))
+        {
+            _input.setIsPause(!_input.isPause());
+            _engineInit->rightBar()->setTextBlinking(Pause, _input.isPause());
+            _control.reset();
+            return;
+        }
+        if (_input.isPause()) return;
+
+        if (_input.isKeyPressed(SDLK_e))
+        {
+            if (_invertGameSpeed >= 4)
+            {
+                _invertGameSpeed -= 2;
+                TETRIS_INFO("Game Speed: {0}", _invertGameSpeed);
+                if (const auto bar = _engineInit->rightBar())
+                {
+                    bar->setNumberSpeed(bar->getSpeed() + 1);
+                }
+            }
+        }
+
         _control.reset();
         _control.offsetX += _input.isKeyPressed(SDLK_RIGHT);
         _control.offsetX -= _input.isKeyPressed(SDLK_LEFT);
 
         _control.needRotate = _input.isKeyPressed(SDLK_UP);
 
-        if (_frameCounter % running::input_move_speed == 0)
-        {
-            _control.offsetX += _input.isHandleHold(SDLK_RIGHT);
-            _control.offsetX -= _input.isHandleHold(SDLK_LEFT);
-        }
+        //if (_frameCounter % running::input_move_speed == 0)
+        //{
+        _control.offsetX += _input.isHandleHold(SDLK_RIGHT);
+        _control.offsetX -= _input.isHandleHold(SDLK_LEFT);
+        //}
 
         //
         const auto tempGameSpeed = _input.isKeyDown(SDLK_DOWN) ? running::input_move_speed : _invertGameSpeed;
@@ -132,11 +175,15 @@ namespace sandbox
         {
             _rmvX = game_field::max_x;
             std::reverse(_rmvY.begin(), _rmvY.end());
+
+            int scoreFactor = 0;
             for (const int& elem : _rmvY)
             {
                 shiftAfterRemove(elem);
+                scoreFactor++;
             }
             _rmvY.clear();
+            updateScore(scoreFactor);
         }
     }
 
@@ -148,6 +195,18 @@ namespace sandbox
             {
                 point.y++;
             }
+        }
+    }
+
+    void Game::updateScore(int scoreFactor) const
+    {
+        for (int i = 1; i <= scoreFactor; ++i)
+        {
+            if (const auto bar = _engineInit->rightBar())
+            {
+                bar->setNumberScore(bar->getScore() + 100 * i);
+            }
+
         }
     }
 }

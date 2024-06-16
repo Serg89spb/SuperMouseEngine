@@ -30,7 +30,6 @@ namespace super_mouse
             switch (event.type)
             {
             case SDL_QUIT: _shouldQuit = true; break;
-
             case SDL_KEYDOWN:
                 pressKey(event.key.keysym.sym);
                 _isHolding = true;
